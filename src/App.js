@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Square from "./component/Square"
 import NavBar from "./component/NavBar"
@@ -15,8 +14,8 @@ const Board = (props) => {
     );
   };
   const onSquareClick = (i) => {
-    if (props.square[i])
-    {return}
+    //if (props.square[i])
+    //return true}
     const newSquare = props.squares;
     newSquare[i] = xIsNext ? 'X' : 'O';
     props.setSquares(newSquare);
@@ -54,7 +53,7 @@ const Game = () => {
     <div className="game">
 
       <div className="game-info">
-        <h1>Tic Tac Toe</h1>
+        
         <ol>{/* TODO */}</ol>
       </div>
       <br /> <br /> <br /> <br />
@@ -68,12 +67,12 @@ const Game = () => {
 function App() {
 
   return (
-
     <div className="App">
       <NavBar/>
       <Game />
     </div>
   );
 }
+
 
 export default App;
