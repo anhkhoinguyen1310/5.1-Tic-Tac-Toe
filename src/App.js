@@ -1,6 +1,7 @@
 import "./App.css";
 import Square from "./component/Square"
 import NavBar from "./component/NavBar"
+import { Container, Row, Col } from 'react-bootstrap'
 import { useState } from 'react';
 
 const Board = (props) => {
@@ -10,7 +11,7 @@ const Board = (props) => {
       value={i}
       hi={props.squares[i]}
       onSquareClick={onSquareClick}
-    />  
+    />
     );
   };
   const onSquareClick = (i) => {
@@ -20,9 +21,9 @@ const Board = (props) => {
     newSquare[i] = xIsNext ? 'X' : 'O';
     props.setSquares(newSquare);
     setXIsNext(!xIsNext);
-    
+
   };
-  const status = xIsNext ? "Next player: X" : "Next player: O" ;
+  const status = xIsNext ? "Next player: X" : "Next player: O";
 
   return (
     <div>
@@ -53,13 +54,22 @@ const Game = () => {
     <div className="game">
 
       <div className="game-info">
-        
+
         <ol>{/* TODO */}</ol>
       </div>
-      <br /> <br /> <br /> <br />
-      <div className="game-board">
-        <Board squares={squares} setSquares={setSquares} />
-      </div>
+      <Container>
+        <Row>
+          <Col xs={12} md={8}>
+            <div className="game-board">
+              <Board squares={squares} setSquares={setSquares} />
+            </div>
+          </Col>
+          <Col xs={6} md={4}>
+            okkkk
+    </Col>
+        </Row>
+      </Container>
+
     </div>
   );
 };
@@ -68,7 +78,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar />
       <Game />
     </div>
   );
